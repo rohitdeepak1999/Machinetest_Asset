@@ -1,0 +1,40 @@
+
+<div class="container">
+    <div>
+        <h3>LOGIN HERE</h3>
+        <hr>
+        <!--Reactive form-->
+        <form [formGroup]="loginForm" (ngSubmit)="LoginCredentials()">
+            <label>Username : </label>
+            <div>
+                <input type="text" placeholder="enter username" formControlName="Username" autocomplete="off"
+                    required />
+            </div>
+            <div *ngIf="isSubmitted && formControls.Username.errors">
+                <div *ngIf="formControls.Username.errors.required" style="color: red ; text-align: left;">
+                    User Name is required
+                </div>
+            </div>
+            <br>
+            <!--password-->
+            <label>Password : </label>
+            <div>
+                <input type="Password" placeholder="enter password" formControlName="Password" autocomplete="off"
+                    required />
+            </div>
+            <div *ngIf="isSubmitted && formControls.Password.errors">
+                <div *ngIf="formControls.Password.errors.required" style="color: red ; text-align: left;">
+                    Password is required
+                </div>
+            </div>
+           <!--Submit-->
+           <br>
+           <div>
+               <button class="btn btn-outline-primary"><span><i class="fa fa fa-sign-in "></i></span> Login</button>
+           </div>
+           <div *ngIf="error"
+           class="invalid-feedback">
+           </div>
+       </form>
+    </div>
+</div>
